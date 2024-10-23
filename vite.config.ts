@@ -35,7 +35,7 @@ export default defineConfig({
       external: ['yeoman-generator'],
       input: glob.sync(path.resolve(__dirname, 'src/**/*.ts')),
       output: {
-        preserveModules: true,
+        preserveModules: false,
         entryFileNames: (entry) => {
           const { name, facadeModuleId } = entry;
           const fileName = `${name}.js`;

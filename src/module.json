@@ -8,7 +8,7 @@
   "system": [],
   "dependencies": [],
   "scripts": [
-    "scripts/entities/character.js"
+    "scripts/character.js"
   ],
   "compatibility": {
     "minimum": "11",
