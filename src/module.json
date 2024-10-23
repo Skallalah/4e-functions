@@ -1,7 +1,6 @@
 {
-  "$schema": "https://json.schemastore.org/foundryvtt-manifest.json",
   "id": "4e-functions",
-  "title": "Typescript Template Module",
+  "title": "Skallalah 4e Functions",
   "description": "Package of functions used in 4e system, for application of effect, damage, and automatisation.",
   "version": "1.0.0",
   "packs": [],
@@ -26,7 +25,6 @@
       "path": "languages/en.json"
     }
   ],
-  "styles": ["style.css"],
   "relationships": {
     "requires": [
       {
