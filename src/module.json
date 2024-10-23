@@ -1,17 +1,19 @@
 {
   "$schema": "https://json.schemastore.org/foundryvtt-manifest.json",
-  "id": "foundry-module-ts",
+  "id": "4e-functions",
   "title": "Typescript Template Module",
   "description": "A template module using Typescript. You should change name, title, and description in module.json.",
   "version": "1.0.0",
   "packs": [],
   "system": [],
   "dependencies": [],
-  "scripts": [],
+  "scripts": [
+    "scripts/entities/character.js"
+  ],
   "compatibility": {
-    "minimum": "9",
-    "verified": "10",
-    "maximum": "10"
+    "minimum": "11",
+    "verified": "12",
+    "maximum": "12"
   },
   "languages": [
     {
@@ -20,6 +22,5 @@
       "path": "languages/en.json"
     }
   ],
-  "styles": ["style.css"],
-  "esmodules": ["scripts/module.js"]
+  "styles": ["style.css"]
 }

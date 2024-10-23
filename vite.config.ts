@@ -2,6 +2,8 @@ import * as fsPromises from "fs/promises";
 import copy from "rollup-plugin-copy";
 import scss from "rollup-plugin-scss";
 import { defineConfig, Plugin } from "vite";
+import path from 'path';
+import glob from 'glob';
 
 const moduleVersion = process.env.MODULE_VERSION;
 const githubProject = process.env.GH_PROJECT;
@@ -10,14 +12,42 @@ const githubTag = process.env.GH_TAG;
 console.log(process.env.VSCODE_INJECTION);
 
 export default defineConfig({
-  build: {
+  /*build: {
     sourcemap: true,
     rollupOptions: {
-      input: "src/ts/module.ts",
+      input: "src/ts/apps",
       output: {
-        dir: undefined,
-        file: "dist/scripts/module.js",
+        dir: './dist/scripts',
         format: "es",
+      },
+    },
+  },*/
+  build: {
+    outDir: 'dist',
+    emptyOutDir: true,
+    cssCodeSplit: true,
+    minify: false,
+    lib: {
+      entry: path.resolve(__dirname, 'src/entities/index.ts'),
+      formats: ['cjs'],
+    },
+    rollupOptions: {
+      external: ['yeoman-generator'],
+      input: glob.sync(path.resolve(__dirname, 'src/**/*.ts')),
+      output: {
+        preserveModules: true,
+        entryFileNames: (entry) => {
+          const { name, facadeModuleId } = entry;
+          const fileName = `${name}.js`;
+          if (!facadeModuleId) {
+            return fileName;
+          }
+          const relativeDir = path.relative(
+            path.resolve(__dirname, 'src'),
+            path.dirname(facadeModuleId),
+          );
+          return path.join(relativeDir, fileName);
+        },
       },
     },
   },
