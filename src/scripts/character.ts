@@ -1,8 +1,24 @@
 export class Character {
-    // private _token: any = { name: 'hello' };
+    private _actor : Actor;
+
+    constructor(actor: any) {
+        this._actor = actor;
+    }
+
+   
+
+    public static fromActor(actor: any): Character {
+        return new Character(actor);
+    }
+
+    public get currentToken(): Token | null {
+        const tokens = this._actor.getActiveTokens(true);
+
+        return tokens ? tokens[0] : null;
+    }
     
-    public static getName() {
-        return 'dsqdsq'
+    public getName() {
+        return this._actor;
     }
 
     public getNothing() {

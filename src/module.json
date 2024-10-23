@@ -2,13 +2,17 @@
   "$schema": "https://json.schemastore.org/foundryvtt-manifest.json",
   "id": "4e-functions",
   "title": "Typescript Template Module",
-  "description": "A template module using Typescript. You should change name, title, and description in module.json.",
+  "description": "Package of functions used in 4e system, for application of effect, damage, and automatisation.",
   "version": "1.0.0",
   "packs": [],
   "system": [],
   "dependencies": [],
   "scripts": [
-    "scripts/character.js"
+    "scripts/character.js",
+    "scripts/actor.js",
+    "scripts/helper.js",
+    "scripts/scene.js",
+    "scripts/target.js"
   ],
   "compatibility": {
     "minimum": "11",
@@ -22,5 +26,36 @@
       "path": "languages/en.json"
     }
   ],
-  "styles": ["style.css"]
+  "styles": ["style.css"],
+  "relationships": {
+    "requires": [
+      {
+        "id": "ActiveAuras",
+        "type": "module",
+        "compatibility": {}
+      },
+      {
+        "id": "lib-wrapper",
+        "type": "module",
+        "compatibility": {}
+      },
+      {
+        "id": "socketlib",
+        "type": "module",
+        "compatibility": {}
+      },
+      {
+        "id": "sequencer",
+        "type": "module",
+        "compatibility": {}
+      }
+    ],
+    "systems": [
+      {
+        "id": "dnd4e",
+        "type": "system",
+        "compatibility": {}
+      }
+    ]
+  }
 }
