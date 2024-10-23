@@ -6,18 +6,16 @@
   "private": true,
   "scripts": {
     "build": "tsc && vite build",
-    "watch": "tsc && vite build --watch",
-    "prepare": "patch-package"
+    "watch": "tsc && vite build --watch"
   },
-  "devDependencies": {
-    "@league-of-foundry-developers/foundry-vtt-types": "https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#12.331.0-beta",
+  "dependencies": {
     "rollup-plugin-copy": "^3.5.0",
     "rollup-plugin-scss": "^4.0.0",
     "sass": "^1.80.3",
     "typescript": "^5.6.3",
     "vite": "^5.4.10"
   },
-  "resolutions": {
-    "@types/earcut": "patch:@types/earcut@2.1.4#./patches/@types+earcut+2.1.4.patch"
+  "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "https://github.com/League-of-Foundry-Developers/foundry-vtt-types.git#12.331.0-beta"
   }
 }
