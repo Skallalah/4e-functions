@@ -24,7 +24,7 @@ export class Helper4e {
     static async macroApplyHeal(scope: ApplyHealScope) {
         const { actorIdentifier, surge, value } = scope;
 
-        const actor = Actor4e.findActorByName(actorIdentifier);
+        const actor = Actor4e.findActorByName(actorIdentifier) as any; 
 
         if (!actor) return undefined;
 

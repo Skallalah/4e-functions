@@ -2,7 +2,7 @@ import { Scene4e } from "./scene";
 
 export class Actor4e {
     static findActorByName(name: string) {
-        return game.actors.getName(name);
+        return game.actors.getName(name) as any;
     }
 
     static findTokenByName(name: string) {

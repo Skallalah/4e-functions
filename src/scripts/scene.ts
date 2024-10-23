@@ -3,15 +3,15 @@ export class Scene4e {
         return game.scenes.current;
     }
 
-    static getCurrentScenesTokens(): Token[] {
+    static getCurrentScenesTokens() {
         const scene = this.getCurrent()
 
         if (!scene) return [];
 
-        return scene.tokens;
+        return scene.tokens.map(t => t);
     }
 
-    static isAtSameLocation(token: Token, x: number, y: number) {
+    static isAtSameLocation(token: TokenDocument, x: number, y: number) {
         const tokenTrueAxis = canvas?.grid?.getCenter(token.x, token.y);
         const targetTrueAxis = canvas?.grid?.getCenter(x, y);
 
@@ -24,20 +24,20 @@ export class Scene4e {
         return this.getCurrentScenesTokens().find(t => this.isAtSameLocation(t, x, y));
     }
 
-    static measureDistance(token: Token, target: Token) {
+    static measureDistance(token: TokenDocument, target: TokenDocument) {
         const distance = canvas?.grid?.measureDistance(token, target);
 
         return distance !== undefined ? distance : 999999;
     }
 
-    static isAdjacent(token: Token, target: Token) {
+    static isAdjacent(token: TokenDocument, target: TokenDocument) {
         return (
             this.measureDistance(token, target) <= 1.5 &&
             target.name !== token.name
         );
     }
 
-    static getAdjacentTokens(targetToken: Token, disposition: number) {
+    static getAdjacentTokens(targetToken: TokenDocument, disposition: number) {
         return this.getCurrentScenesTokens().filter((token) =>
             (token as any).disposition === disposition && this.isAdjacent(targetToken, token)
         );
