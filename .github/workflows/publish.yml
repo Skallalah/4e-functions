@@ -14,10 +14,10 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: 20.15.1
 
       - name: Install dependencies
-        run: yarn
+        run: yarn --ignore-missing
 
       - name: Extract tag version number
         id: get_version
