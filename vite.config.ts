@@ -28,7 +28,7 @@ export default defineConfig({
     cssCodeSplit: true,
     minify: false,
     lib: {
-      entry: path.resolve(__dirname, 'src/entities/index.ts'),
+      entry: path.resolve(__dirname, 'src/index.ts'),
       formats: ['cjs'],
     },
     rollupOptions: {

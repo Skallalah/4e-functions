@@ -1,4 +1,4 @@
-export default class Character {
+export class Character {
     // private _token: any = { name: 'hello' };
     
     public static getName() {

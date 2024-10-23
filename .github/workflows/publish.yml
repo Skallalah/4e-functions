@@ -14,7 +14,7 @@ jobs:
       - name: Setup node
         uses: actions/setup-node@v3
         with:
-          node-version: 18
+          node-version: 20
 
       - name: Install dependencies
         run: yarn
@@ -32,7 +32,7 @@ jobs:
 
       - name: Create zip archive
         working-directory: dist
-        run: zip -r ./module.zip module.json style.css scripts/ templates/ languages/
+        run: zip -r ./module.zip module.json style.css scripts/ languages/
 
       - name: Update release with files
         id: create_version_release
