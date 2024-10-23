@@ -17,7 +17,7 @@ jobs:
           node-version: 20.15.1
 
       - name: Install dependencies
-        run: yarn install --frozen-lockfile --production
+        run: npm install
 
       - name: Extract tag version number
         id: get_version
